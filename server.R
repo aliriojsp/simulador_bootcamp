@@ -4,8 +4,8 @@ library(dplyr)
 
 shinyServer(function(input, output, session) {
 
-  File<-read.csv("https://raw.githubusercontent.com/aliriojsp/simulador_bootcamp/master/File.csv?token=AHWPS7MLS3FOT5NXZOQD7226TCMQA")%>%select(Género=Gender,Educación=EducationHighest,ExperienciaPrevia=WorkExperience, Personalidad_apertura="ACPersonalityO", Personalidad_responsabilidad="ACPersonalityC",
-  Personalidad_extroversión="ACPersonalityE", Personalidad_amabilidad= "ACPersonalityA", Personalidad_neuroticismo="ACPersonalityN",Competencia_Técnica="ACRatingINTCOMPA", Competencia_Teamplayer="ACRatingINTCOMPB",Competencia_PensamientoCritico="ACRatingINTCOMPC",Competencia_Negocio="ACRatingINTCOMPD",Competencia_InnovacionYmotivacion="ACRatingINTCOMPE", Desempeño_Primeraño="Year1performanceRating")
+File<-read.csv("https://raw.githubusercontent.com/aliriojsp/simulador_bootcamp/master/File.csv?token=AHWPS7MLS3FOT5NXZOQD7226TCMQA")%>%select(Género=Gender,Educación=EducationHighest,ExperienciaPrevia=WorkExperience, Personalidad_apertura="ACPersonalityO", Personalidad_responsabilidad="ACPersonalityC",
+Personalidad_extroversión="ACPersonalityE", Personalidad_amabilidad= "ACPersonalityA", Personalidad_neuroticismo="ACPersonalityN",Competencia_Técnica="ACRatingINTCOMPA", Competencia_Teamplayer="ACRatingINTCOMPB",Competencia_PensamientoCritico="ACRatingINTCOMPC",Competencia_Negocio="ACRatingINTCOMPD",Competencia_InnovacionYmotivacion="ACRatingINTCOMPE", Desempeño_Primeraño="Year1performanceRating")
   
   
   output$plot <- renderPlot({
