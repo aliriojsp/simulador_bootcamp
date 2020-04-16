@@ -4,17 +4,17 @@ library(dplyr)
 
 shinyServer(function(input, output, session) { 
   
- mydata <- reactive({
+ File <- reactive({
 
  urlfile<-'https://raw.githubusercontent.com/aliriojsp/simulador_bootcamp/master/File.csv'
 
 if (is.null(urlfile))
   return(NULL)
 
-File<-read.csv(urlfile)%>%select(Género=Gender,Educación=EducationHighest,ExperienciaPrevia=WorkExperience, Personalidad_apertura="ACPersonalityO", Personalidad_responsabilidad="ACPersonalityC",
+mydata<-read.csv(urlfile)%>%select(Género=Gender,Educación=EducationHighest,ExperienciaPrevia=WorkExperience, Personalidad_apertura="ACPersonalityO", Personalidad_responsabilidad="ACPersonalityC",
 Personalidad_extroversión="ACPersonalityE", Personalidad_amabilidad= "ACPersonalityA", Personalidad_neuroticismo="ACPersonalityN",Competencia_Técnica="ACRatingINTCOMPA", Competencia_Teamplayer="ACRatingINTCOMPB",Competencia_PensamientoCritico="ACRatingINTCOMPC",Competencia_Negocio="ACRatingINTCOMPD",Competencia_InnovacionYmotivacion="ACRatingINTCOMPE", Desempeño_Primeraño="Year1performanceRating")
 
-return(File)
+return(mydata)
 })
 
   
