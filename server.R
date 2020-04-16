@@ -2,14 +2,24 @@ library(shiny)
 library(ggplot2)
 library(dplyr)
 
-shinyServer(function(input, output, session) {  
+shinyServer(function(input, output, session) { 
   
-  output$plot <- renderPlot({
-    
-    urlfile<-'https://raw.githubusercontent.com/aliriojsp/simulador_bootcamp/master/File.csv'
+ mydata <- reactive({
+
+ urlfile<-'https://raw.githubusercontent.com/aliriojsp/simulador_bootcamp/master/File.csv'
+
+if (is.null(urlfile))
+  return(NULL)
+
 File<-read.csv(urlfile)%>%select(Género=Gender,Educación=EducationHighest,ExperienciaPrevia=WorkExperience, Personalidad_apertura="ACPersonalityO", Personalidad_responsabilidad="ACPersonalityC",
 Personalidad_extroversión="ACPersonalityE", Personalidad_amabilidad= "ACPersonalityA", Personalidad_neuroticismo="ACPersonalityN",Competencia_Técnica="ACRatingINTCOMPA", Competencia_Teamplayer="ACRatingINTCOMPB",Competencia_PensamientoCritico="ACRatingINTCOMPC",Competencia_Negocio="ACRatingINTCOMPD",Competencia_InnovacionYmotivacion="ACRatingINTCOMPE", Desempeño_Primeraño="Year1performanceRating")
 
+return(File)
+})
+
+  
+  
+  output$plot <- renderPlot({
     
     # Subset the gapminder dataset by the chosen continents
     RemoveGrid<- theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"))
