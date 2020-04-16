@@ -2,9 +2,6 @@ library(shiny)
 library(ggplot2)
 library(dplyr)
 
-File<-read.delim("C:\\Users\\VDH-DMC1NV2\\Desktop\\Diplomado Tec\\Chapt8\\Chapter8Selection.txt")%>%select(Género=Gender,Educación=EducationHighest,ExperienciaPrevia=WorkExperience, Personalidad_apertura="ACPersonalityO", Personalidad_responsabilidad="ACPersonalityC",       
-                                                                                                           Personalidad_extroversión="ACPersonalityE", Personalidad_amabilidad= "ACPersonalityA", Personalidad_neuroticismo="ACPersonalityN",Competencia_Técnica="ACRatingINTCOMPA", Competencia_Teamplayer="ACRatingINTCOMPB",Competencia_PensamientoCritico="ACRatingINTCOMPC",Competencia_Negocio="ACRatingINTCOMPD",Competencia_InnovacionYmotivacion="ACRatingINTCOMPE", Desempeño_Primeraño="Year1performanceRating")
-
 shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
