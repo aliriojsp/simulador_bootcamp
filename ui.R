@@ -1,10 +1,6 @@
 library(shiny)
 library(ggplot2)
 library(dplyr)
-
-urlfile<-'https://raw.githubusercontent.com/aliriojsp/simulador_bootcamp/master/File.csv?token=AHWPS7MLS3FOT5NXZOQD7226TCMQA'
-File<-read.csv(urlfile)%>%select(Género=Gender,Educación=EducationHighest,ExperienciaPrevia=WorkExperience, Personalidad_apertura="ACPersonalityO", Personalidad_responsabilidad="ACPersonalityC",
-Personalidad_extroversión="ACPersonalityE", Personalidad_amabilidad= "ACPersonalityA", Personalidad_neuroticismo="ACPersonalityN",Competencia_Técnica="ACRatingINTCOMPA", Competencia_Teamplayer="ACRatingINTCOMPB",Competencia_PensamientoCritico="ACRatingINTCOMPC",Competencia_Negocio="ACRatingINTCOMPD",Competencia_InnovacionYmotivacion="ACRatingINTCOMPE", Desempeño_Primeraño="Year1performanceRating")
   
 shinyUI(fluidPage(
   sidebarLayout(
@@ -16,6 +12,12 @@ shinyUI(fluidPage(
       numericInput("size", "Tamaño del punto", 1, 1),
       checkboxInput("fit", "Agregar liñea de tendencia", FALSE),
       # Add a continent dropdown selector
+      
+      urlfile<-'https://raw.githubusercontent.com/aliriojsp/simulador_bootcamp/master/File.csv?token=AHWPS7MLS3FOT5NXZOQD7226TCMQA'
+File<-read.csv(urlfile)%>%select(Género=Gender,Educación=EducationHighest,ExperienciaPrevia=WorkExperience, Personalidad_apertura="ACPersonalityO", Personalidad_responsabilidad="ACPersonalityC",
+Personalidad_extroversión="ACPersonalityE", Personalidad_amabilidad= "ACPersonalityA", Personalidad_neuroticismo="ACPersonalityN",Competencia_Técnica="ACRatingINTCOMPA", Competencia_Teamplayer="ACRatingINTCOMPB",Competencia_PensamientoCritico="ACRatingINTCOMPC",Competencia_Negocio="ACRatingINTCOMPD",Competencia_InnovacionYmotivacion="ACRatingINTCOMPE", Desempeño_Primeraño="Year1performanceRating")
+
+      
       selectInput("dependent", "Variable de interés",
                   choices = colnames(File),
                   multiple = FALSE)
