@@ -3,7 +3,29 @@ library(ggplot2)
 library(dplyr)
 
   File<-read.csv("https://raw.githubusercontent.com/aliriojsp/simulador_bootcamp/master/File.csv")
-      
+  
+  output$contents <- renderTable({
+
+    # input$file1 will be NULL initially. After the user selects
+    # and uploads a file, head of that data file by default,
+    # or all rows if selected, will be shown.
+
+    req(input$file1)
+
+    File <- read.csv(input$file1$datapath,
+             header = input$header,
+             sep = input$sep,
+             quote = input$quote)
+
+    if(input$disp == "head") {
+      return(head(File))
+    }
+    else {
+      return(File)
+    }
+
+  })
+  
   output$plot <- renderPlot({
     
     # Subset the gapminder dataset by the chosen continents
