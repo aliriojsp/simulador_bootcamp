@@ -12,7 +12,7 @@ shinyUI(fluidPage(
       numericInput("size", "Tamaño del punto", 1, 1),
       checkboxInput("fit", "Agregar liñea de tendencia", FALSE),
       # Add a continent dropdown selector
-      fileInput(input$File),
+      fileInput('File', 'Input CSV', accept = '.csv'),
       selectInput("dependent", "Variable de interÃ©s",
                   choices = colnames(File),
                   multiple = FALSE)
