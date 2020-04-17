@@ -4,8 +4,7 @@ library(dplyr)
 
 shinyServer(function(input, output, session) { 
   
-  File <- reactive({File<-read.csv("https://github.com/aliriojsp/simulador_bootcamp/blob/master/File.csv")%>%select(Genero=Gender,Educacion=EducationHighest,ExperienciaPrevia=WorkExperience, Personalidad_apertura="ACPersonalityO", Personalidad_responsabilidad="ACPersonalityC",
-  Personalidad_extroversion="ACPersonalityE", Personalidad_amabilidad= "ACPersonalityA", Personalidad_neuroticismo="ACPersonalityN",Competencia_Tecnica="ACRatingINTCOMPA", Competencia_Teamplayer="ACRatingINTCOMPB",Competencia_PensamientoCritico="ACRatingINTCOMPC",Competencia_Negocio="ACRatingINTCOMPD",Competencia_InnovacionYmotivacion="ACRatingINTCOMPE", Desempeno_Primerano="Year1performanceRating")
+  File <- reactive({File<-  File<-File<-read.csv("https://raw.githubusercontent.com/aliriojsp/simulador_bootcamp/master/File.csv")
   })
     
   output$plot <- renderPlot({
