@@ -12,9 +12,13 @@ shinyUI(fluidPage(
       numericInput("size", "Tamaño del punto", 1, 1),
       checkboxInput("fit", "Agregar liñea de tendencia", FALSE),
       # Add a continent dropdown selector
-      
-      selectInput("dependent", "Variable de interés")
-      ,selectInput("independent", "Conductor"),
+      fileInput(input$File),
+      selectInput("dependent", "Variable de interÃ©s",
+                  choices = colnames(File),
+                  multiple = FALSE)
+      ,selectInput("independent", "Conductor",
+                   choices = colnames(File),
+                   multiple = FALSE),
       h2("Simulador:"),
       "¿Cuál es la probabilidad que el candidato logre a tener un buen desempeño durante su primer año en la compañia? Con este simulador,podemos predecir el futuro desempeño de un candidato!",
       selectInput("Género","Género (1:Hombre, 2:Mujer)",choices=c(1,2),multiple = FALSE),
