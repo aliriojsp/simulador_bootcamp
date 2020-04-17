@@ -6,9 +6,9 @@ shinyServer(function(input, output, session) {
   
   File <- reactive({
     req(input$csv)
-    read.csv("https://raw.githubusercontent.com/aliriojsp/simulador_bootcamp/master/File.csv")      
+    read.csv(input$csv$datapath)
   })
-    
+  
   output$plot <- renderPlot({
     
     # Subset the gapminder dataset by the chosen continents
