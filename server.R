@@ -3,6 +3,10 @@ library(ggplot2)
 library(dplyr)
 
 shinyServer(function(input, output, session) { 
+  output$data <- renderTable({
+      if (length(input$variables) == 0) return(File)
+      File %>% dplyr::select(!!!input$variables)
+   }, rownames = TRUE)
       
   output$plot <- renderPlot({
     
