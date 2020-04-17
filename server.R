@@ -2,8 +2,6 @@ library(shiny)
 library(ggplot2)
 library(dplyr)
 
-  File<-read.csv("https://raw.githubusercontent.com/aliriojsp/simulador_bootcamp/master/File.csv")
-  
 function(input, output, session) {
   File <- reactive({
     req(input$csv)
