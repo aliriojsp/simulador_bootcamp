@@ -4,11 +4,8 @@ library(dplyr)
 
 shinyServer(function(input, output, session) { 
   
-  File <- reactive({
-    req(input$csv)
-    read.csv(input$csv$datapath)
-  })
-  
+  output$File <- renderTable(input$upload)
+    
   output$plot <- renderPlot({
     
     # Subset the gapminder dataset by the chosen continents
