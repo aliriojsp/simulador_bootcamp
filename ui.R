@@ -2,11 +2,7 @@ library(shiny)
 library(ggplot2)
 library(dplyr)
 
-
-
-shinyUI(fluidPage(varSelectInput("variables", "Variable:", File, multiple = TRUE),
-   tableOutput("data"),
-  sidebarLayout(
+fluidPage(sidebarLayout(
     sidebarPanel(
       "¡Hola! Bienvenido/a a esta herramienta para practicar la generación de insights y predicciones con datos de RRHH. El objetivo es simular algunas dinamicas claves durante la fase de analisis en un proyecto de people analytics.",
       h2("Crea tu gráfico:"),
@@ -16,10 +12,10 @@ shinyUI(fluidPage(varSelectInput("variables", "Variable:", File, multiple = TRUE
       checkboxInput("fit", "Agregar liñea de tendencia", FALSE),
       # Add a continent dropdown selector
       selectInput("dependent", "Variable de interÃ©s",
-                  choices = colnames(File),
+                  choices = colnames("File"),
                   multiple = FALSE)
       ,selectInput("independent", "Conductor",
-                   choices = colnames(File),
+                   choices = colnames("File"),
                    multiple = FALSE),
       h2("Simulador:"),
       "¿Cuál es la probabilidad que el candidato logre a tener un buen desempeño durante su primer año en la compañia? Con este simulador,podemos predecir el futuro desempeño de un candidato!",
@@ -42,4 +38,3 @@ shinyUI(fluidPage(varSelectInput("variables", "Variable:", File, multiple = TRUE
      )
    )
  )
-)
