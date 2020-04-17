@@ -2,9 +2,8 @@ library(shiny)
 library(ggplot2)
 library(dplyr)
 
-File<-read.csv("https://raw.githubusercontent.com/aliriojsp/simulador_bootcamp/master/File.csv")
-
-fluidPage(sidebarLayout(
+fluidPage(fileInput('File', 'Input CSV', accept = '.csv'),
+    sidebarLayout(
     sidebarPanel(
       "¡Hola! Bienvenido/a a esta herramienta para practicar la generación de insights y predicciones con datos de RRHH. El objetivo es simular algunas dinamicas claves durante la fase de analisis en un proyecto de people analytics.",
       h2("Crea tu gráfico:"),
