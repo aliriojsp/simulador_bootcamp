@@ -2,7 +2,7 @@ library(shiny)
 library(ggplot2)
 library(dplyr)
 
-fluidPage(fileInput('File', 'Input CSV', accept = '.csv'),
+fluidPage(fileInput('csv', 'Input CSV', accept = '.csv'),
     sidebarLayout(
     sidebarPanel(
       "¡Hola! Bienvenido/a a esta herramienta para practicar la generación de insights y predicciones con datos de RRHH. El objetivo es simular algunas dinamicas claves durante la fase de analisis en un proyecto de people analytics.",
