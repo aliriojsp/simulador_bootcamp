@@ -3,12 +3,11 @@ library(ggplot2)
 library(dplyr)
 
 shinyServer(function(input, output, session) { 
-
+  
   File <- reactive({
-    read.csv('https://raw.githubusercontent.com/aliriojsp/simulador_bootcamp/master/File.csv?token=AHWPS7IZQRJYEVGJXY4246K6TGQNE')%>%select(Género=Gender,Educación=EducationHighest,ExperienciaPrevia=WorkExperience, Personalidad_apertura="ACPersonalityO", Personalidad_responsabilidad="ACPersonalityC",
-    Personalidad_extroversión="ACPersonalityE", Personalidad_amabilidad= "ACPersonalityA", Personalidad_neuroticismo="ACPersonalityN",Competencia_Técnica="ACRatingINTCOMPA", Competencia_Teamplayer="ACRatingINTCOMPB",Competencia_PensamientoCritico="ACRatingINTCOMPC",Competencia_Negocio="ACRatingINTCOMPD",Competencia_InnovacionYmotivacion="ACRatingINTCOMPE", Desempeño_Primeraño="Year1performanceRating")
+    req(input$csv)
+    read.csv(input$csv$datapath)
   })
-
     
   output$plot <- renderPlot({
     
