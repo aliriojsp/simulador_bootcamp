@@ -4,7 +4,9 @@ library(dplyr)
 
 shinyServer(function(input, output, session) { 
   
-  File <- reactive({File<-  File<-File<-read.csv("https://raw.githubusercontent.com/aliriojsp/simulador_bootcamp/master/File.csv")
+  File <- reactive({
+    req(input$csv)
+    read.csv("https://raw.githubusercontent.com/aliriojsp/simulador_bootcamp/master/File.csv")      
   })
     
   output$plot <- renderPlot({
