@@ -3,21 +3,7 @@ library(ggplot2)
 library(dplyr)
 
 shinyServer(function(input, output, session) { 
-  
-output$contents <- renderTable({
-    # input$file1 will be NULL initially. After the user selects
-    # and uploads a file, it will be a data frame with 'name',
-    # 'size', 'type', and 'datapath' columns. The 'datapath'
-    # column will contain the local filenames where the data can
-    # be found.
-    File <- input$file1
-
-    if (is.null(File))
-      return(NULL)
-
-    read.csv(File$datapath, header = input$header)
-  })
-    
+      
   output$plot <- renderPlot({
     
     # Subset the gapminder dataset by the chosen continents
