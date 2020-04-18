@@ -4,13 +4,7 @@ library(dplyr)
 
 function(input, output, session) { 
   
-  File <- reactive({
-    infile <- input$datafile
-    if (is.null(infile)) {
-      return(NULL)
-    }
-    read.csv(infile$datapath)
-  })
+  File<-read.csv("https://raw.githubusercontent.com/aliriojsp/simulador_bootcamp/master/File.csv")
   
   output$plot <- renderPlot({
     
