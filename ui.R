@@ -12,10 +12,10 @@ fluidPage(sidebarLayout(
       checkboxInput("fit", "Agregar liñea de tendencia", FALSE),
       # Add a continent dropdown selector
       selectInput("dependent", "Variable de interÃ©s",
-                  choices = colnames(File()),
+                  choices = colnames("File"),
                   multiple = FALSE)
       ,selectInput("independent", "Conductor",
-                   choices = colnames(File()),
+                   choices = colnames("File"),
                    multiple = FALSE),
       h2("Simulador:"),
       "¿Cuál es la probabilidad que el candidato logre a tener un buen desempeño durante su primer año en la compañia? Con este simulador,podemos predecir el futuro desempeño de un candidato!",
