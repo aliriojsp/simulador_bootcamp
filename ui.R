@@ -10,7 +10,7 @@ fluidPage(fileInput("File", "Choose CSV File",
                 ),
         tags$hr(),
         checkboxInput("header", "Header", TRUE)
-        ), tableOutput("File"),
+        ),
                  
     sidebarLayout(
     sidebarPanel(
