@@ -4,12 +4,13 @@ library(dplyr)
 
 function(input, output, session) { 
   
-  output$File <- renderTable({ 
-   if(is.null(input$File)){return()}
-   read.table(file=input$File$datapath[input$File$name==input$Select], sep=input$sep, header = input$header, stringsAsFactors = input$stringAsFactors)
-  
+  File <- reactive({
+    infile <- input$datafile
+    if (is.null(infile)) {
+      return(NULL)
+    }
+    read.csv(infile$datapath)
   })
-  
   
   output$plot <- renderPlot({
     
