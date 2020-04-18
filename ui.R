@@ -8,7 +8,7 @@ fluidPage(fileInput("File","Upload the file", multiple = TRUE), # fileinput() fu
       checkboxInput(inputId = 'header', label = 'Header', value = TRUE),
       checkboxInput(inputId = "stringAsFactors", "stringAsFactors", FALSE),
       radioButtons(inputId = 'sep', label = 'Separator', choices = c(Comma=',',Semicolon=';',Tab='\t', Space=''), selected = ','),
-      uiOutput("File"),
+      uiOutput("file"),
     sidebarLayout(
     sidebarPanel(
       "¡Hola! Bienvenido/a a esta herramienta para practicar la generación de insights y predicciones con datos de RRHH. El objetivo es simular algunas dinamicas claves durante la fase de analisis en un proyecto de people analytics.",
