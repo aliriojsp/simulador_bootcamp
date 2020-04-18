@@ -2,7 +2,7 @@ library(shiny)
 library(ggplot2)
 library(dplyr)
 
-fluidPage(fileInput("file","Upload the file", multiple = TRUE), # fileinput() function is used to get the file upload contorl option
+fluidPage(fileInput("File","Upload the file", multiple = TRUE), # fileinput() function is used to get the file upload contorl option
       helpText("Default max. file size is 5MB"),
       helpText("Select the read.table parameters below"),
       checkboxInput(inputId = 'header', label = 'Header', value = TRUE),
