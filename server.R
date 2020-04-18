@@ -33,7 +33,7 @@ function(input, output, session) {
     ExperienciaPrevia<- c(input$ExperienciaPrevia)
     Personalidad_apertura<-c(input$Personalidad_apertura)
     Personalidad_responsabilidad<-c(input$Personalidad_responsabilidad)
-    Personalidad_extroversión<-c(input$Personalidad_extroversión)
+    Personalidad_extroversion<-c(input$Personalidad_extroversion)
     Personalidad_amabilidad<-c(input$Personalidad_amabilidad)
     Competencia_Tecnica<-c(input$Competencia_Tecnica)
     Competencia_Teamplayer<-c(input$Competencia_Teamplayer)
