@@ -3,18 +3,18 @@ library(ggplot2)
 library(dplyr)
 
 fluidPage(fileInput("File", "Choose CSV File",
-        accept = c(
-          "text/csv",
-          "text/comma-separated-values,text/plain",
-          ".csv")
+                accept = c(
+                "text/csv",
+                "text/comma-separated-values,text/plain",
+                ".csv")
+                ),
+        tags$hr(),
+        checkboxInput("header", "Header", TRUE)
         ),
-      tags$hr(),
-      checkboxInput("header", "Header", TRUE)
-    ),
-    mainPanel(
-      tableOutput("File")
-          
-          
+        mainPanel(
+        tableOutput("File")
+        ),
+                 
     sidebarLayout(
     sidebarPanel(
       "¡Hola! Bienvenido/a a esta herramienta para practicar la generación de insights y predicciones con datos de RRHH. El objetivo es simular algunas dinamicas claves durante la fase de analisis en un proyecto de people analytics.",
