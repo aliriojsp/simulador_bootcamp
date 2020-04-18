@@ -3,7 +3,7 @@ library(ggplot2)
 library(dplyr)
 
 function(input, output, session) {
-  File <- reactive({
+  output$File <- reactive({
     req(input$csv)
     read.csv(input$csv$datapath)
   })
