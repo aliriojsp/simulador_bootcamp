@@ -5,8 +5,8 @@ library(dplyr)
 function(input, output, session) { 
   
   output$File <- renderTable({ 
-   if(is.null(input$file)){return()}
-   read.table(file=input$file$datapath[input$file$name==input$Select], sep=input$sep, header = input$header, stringsAsFactors = input$stringAsFactors)
+   if(is.null(input$File)){return()}
+   read.table(file=input$File$datapath[input$File$name==input$Select], sep=input$sep, header = input$header, stringsAsFactors = input$stringAsFactors)
   
   })
   
