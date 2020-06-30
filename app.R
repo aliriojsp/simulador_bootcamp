@@ -1,31 +1,17 @@
 library(shiny)
 library(ggplot2)
 library(dplyr)
-library(readxl)
 library(shinythemes)
 library(flexdashboard)
-library(imbalance)
-library(caret)
-library(readr)
 library(fastDummies)
 
 FileRot <- read.csv("https://raw.githubusercontent.com/aliriojsp/simulador_bootcamp/master/File.csv")
-
 FileRot <- data.frame(FileRot)
-
 FileRot <- FileRot %>% mutate(Desempeno_Primerano = as.numeric(Desempeno_Primerano),
          Desempeno_Primerano = if_else(is.na(Desempeno_Primerano), 3, Desempeno_Primerano))
-
-FileRot$Desempeno_Primerano
-
-colnames(FileRot)
-
-
 results <- fastDummies::dummy_cols(FileRot, select_columns = "Educacion")
-
 FileRot <- results
 FileRot <- data.frame(FileRot)
-
 
 shinyApp(
   ui <- navbarPage("People Analytics",
