@@ -22,7 +22,6 @@ colnames(FileRot)
 
 
 results <- fastDummies::dummy_cols(FileRot, select_columns = "Educacion")
-knitr::kable(results)
 
 FileRot <- results
 FileRot <- data.frame(FileRot)
@@ -63,6 +62,7 @@ shinyApp(
                          sliderInput("Personalidad_responsabilidad","Personalidad_responsabilidad", min=0,max=100,value=90),
                          sliderInput("Personalidad_extroversion","Personalidad_extroversion", min=0,max=100,value=90),
                          sliderInput("Personalidad_amabilidad","Personalidad_amabilidad", min=0,max=100,value=90),
+                         sliderInput("Personalidad_neuroticismo","Personalidad_neuroticismo", min=0,max=100,value=90),
                          sliderInput("Competencia_Tecnica","Competencia_Tecnica", min=0,max=5,value=4),
                          sliderInput("Competencia_Teamplayer","Competencia_Teamplayer", min=0,max=5,value=4),
                          sliderInput("Competencia_PensamientoCritico","Competencia_PensamientoCritico", min=0,max=5,value=4),
