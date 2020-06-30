@@ -1,2 +1,6 @@
 install.packages("ggplot2", dependencies = TRUE)
 install.packages("dplyr", dependencies = TRUE)
+install.packages("shinythemes", dependencies = TRUE)
+install.packages("flexdashboard", dependencies = TRUE)
+install.packages("readr", dependencies = TRUE)
+install.packages("fastDummies", dependencies = TRUE)
