@@ -18,7 +18,7 @@ shinyApp(
                    tabPanel("Insights", fluidPage(theme = shinytheme("flatly"),
                                                   sidebarLayout(
                                                     sidebarPanel(
-                                                      "¡Hola! Bienvenido/a a esta herramienta para practicar la generación de insights con datos de RRHH. El objetivo es simular algunas dinamicas claves durante la fase de analisis en un proyecto de people analytics.",
+                                                      "¡Hola! Bienvenido/a al toolkit para el equipo de selección y reclutamiento de Oculuus. El objetivo es explorar y aplicar insights relevantes acerca de la selección de candidatos interesantes para el rol de KAM.",
                                                       h2("Crea tu gráfico:"),
                                                       "Genera y customiza gráficos para visualizar la relación lineal entre dos variables de interés" ,
                                                       selectInput("driver", "Conductor",
@@ -41,8 +41,7 @@ shinyApp(
                          "¡Hola! Bienvenido/a a esta herramienta para practicar la generación de predicciones con datos de RRHH. El objetivo es simular algunas dinamicas claves durante la fase de analisis en un proyecto de people analytics.",
                          h2("Simulador:"),
                          "Con este simulador,podemos predecir la probabilidad de que un colaborador renuncie",
-                         selectInput("Genero","Genero (1:Hombre, 2:Mujer)",choices=c(1,2),multiple = FALSE),
-                         selectInput("Educacion","Educacion (1:ITBA,2:Sin titulo,3:UBA)",choices=c(1,2,3),multiple = FALSE),
+                         selectInput("Educacion","Educacion (1:UNAM,2:ISDI,3:TEC)",choices=c(1,2,3),multiple = FALSE),
                          selectInput("ExperienciaPrevia","ExperienciaPrevia (1:Con, 2:Sin)",choices=c(1,2),multiple = FALSE),
                          sliderInput("Personalidad_apertura","Personalidad_apertura", min=0,max=100,value=90),
                          sliderInput("Personalidad_responsabilidad","Personalidad_responsabilidad", min=0,max=100,value=90),
@@ -84,7 +83,7 @@ shinyApp(
       RemoveGrid<- theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank(),panel.background = element_blank(), axis.line = element_line(colour = "black"))
       
       
-      Genero<- c(input$Genero)
+     # Genero<- c(input$Genero)
       Educacion<-c(input$Educacion)
       ExperienciaPrevia<- c(input$ExperienciaPrevia)
       Personalidad_apertura<-c(input$Personalidad_apertura)
@@ -98,8 +97,8 @@ shinyApp(
       Competencia_Negocio<-c(input$Competencia_Negocio)
       Competencia_InnovacionYmotivacion<-c(input$Competencia_InnovacionYmotivacion)
       
-      Frame<- data.frame(Genero,Educacion,ExperienciaPrevia,Personalidad_apertura,Personalidad_responsabilidad,Personalidad_neuroticismo,Personalidad_extroversion,Personalidad_amabilidad,Competencia_Tecnica,Competencia_Teamplayer,Competencia_PensamientoCritico,Competencia_Negocio,Competencia_InnovacionYmotivacion)
-      Modelo<-glm(FileRot$Desempeno_Primerano~as.factor(Genero)+as.factor(Educacion)+as.factor(ExperienciaPrevia)+Personalidad_neuroticismo+Personalidad_apertura+Personalidad_responsabilidad+Personalidad_extroversion+Personalidad_amabilidad+Competencia_Tecnica+
+      Frame<- data.frame(Educacion,ExperienciaPrevia,Personalidad_apertura,Personalidad_responsabilidad,Personalidad_neuroticismo,Personalidad_extroversion,Personalidad_amabilidad,Competencia_Tecnica,Competencia_Teamplayer,Competencia_PensamientoCritico,Competencia_Negocio,Competencia_InnovacionYmotivacion)
+      Modelo<-glm(FileRot$Desempeno_Primerano~as.factor(Educacion)+as.factor(ExperienciaPrevia)+Personalidad_neuroticismo+Personalidad_apertura+Personalidad_responsabilidad+Personalidad_extroversion+Personalidad_amabilidad+Competencia_Tecnica+
                     Competencia_Teamplayer+Competencia_PensamientoCritico+Competencia_Negocio+Competencia_InnovacionYmotivacion, data=FileRot)
       Frame$Predict<-predict(Modelo,Frame) 
       
