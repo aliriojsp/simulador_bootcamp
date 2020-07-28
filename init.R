@@ -1,4 +1,4 @@
-my_packages = c("ggplot2""dplyr","shinythemes","flexdashboard","fastDummies","lubridate","DT")
+my_packages = c("ggplot2","dplyr","shinythemes","flexdashboard","fastDummies","lubridate","DT")
 
 install_if_missing = function(p) {
   if (p %in% rownames(installed.packages()) == FALSE) {
