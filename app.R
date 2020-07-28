@@ -21,7 +21,7 @@ FileRot<-FileRot%>%rename(Género=Genero,"Experiencia Previa"="ExperienciaPrevia
                           "Competencia: Negocio"="Competencia_Negocio","Competencia: Innovación y motivación"="Competencia_InnovacionYmotivacion","Educación"="Educacion","Desempeño Primer Año"="Desempeno_Primerano")
 
 shinyApp(
-    ui <- navbarPage("People Analytics",
+    ui <- navbarPage(column(width = 6, tags$img(src = "Bondi_X_Negativo-Patrones-07.png")),
                      tabPanel("Insights", fluidPage(theme = shinytheme("flatly"),
                                                     sidebarLayout(
                                                         sidebarPanel(
