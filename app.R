@@ -6,10 +6,6 @@ library(flexdashboard)
 library(fastDummies)
 library(lubridate)
 library(DT)
-library(htmlwidgets)
-library(sortable)
-library(magrittr)
-
 
 
 
